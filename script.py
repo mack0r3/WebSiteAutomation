@@ -64,6 +64,64 @@ def isFoldersSizeDifferent(firstFolder, secondFolder):
 def getFileName(file):
     return os.path.splitext(file)[0]
 
+def loginUser(driver):
+    email = "a.gorczyca@jpconsulting.pl"
+    password = "test123"
+
+    emailInput = WebDriverWait(driver, 10).until(
+            lambda driver: driver.find_element_by_name("email")
+            )
+    passwordInput = WebDriverWait(driver, 10).until(
+            lambda driver: driver.find_element_by_name("pass")
+            )
+
+    emailInput.send_keys(email)
+    passwordInput.send_keys(password)
+    emailInput.submit()  
+
+def isLoginRequired(driver):
+    loginURL = "https://buypolish.redcart.pl/panel/plogin/index/"
+    return (driver.current_url == loginURL)
+
+def addProduct():
+    redirectToEditPanel()
+    addImage()
+
+def addImage():
+    addImageMenuItem = WebDriverWait(driver, 10).until(
+        lambda driver: driver.find_element_by_id("dpm_menu2")
+        )
+    addImageMenuItem.click()
+
+    buttonFirstWraper = WebDriverWait(driver, 10).until(
+        lambda driver: driver.find_element_by_id("mp_menu2")
+        )
+    addImageFirstButton = WebDriverWait(driver, 10).until(
+        lambda driver: buttonFirstWraper.find_element_by_class_name('rc_button')
+        )
+    addImageFirstButton.click()
+
+    buttonSecondWraper = WebDriverWait(driver, 10).until(
+        lambda driver: driver.find_element_by_id("rc_window1")
+        )
+    addImageSecondButton = WebDriverWait(driver, 10).until(
+        lambda driver: buttonSecondWraper.find_element_by_class_name("swiff-uploader-box")
+        ) 
+    addImageSecondButton.click()
+
+    SendKeys.SendKeys("CHUJ")
+
+
+    
+
+
+def redirectToEditPanel():
+    URL = "http://buypolish.redcart.pl/panel/products/edit/"
+    driver.get(URL)
+
+
+
+
 
 
 if __name__ == "__main__":
@@ -80,36 +138,48 @@ if __name__ == "__main__":
         print ("Amount of files in those folders is different.")
     else:
         pairedFiles = pairFiles(descriptionsFolder, imagesFolder)
+
         driver = webdriver.Chrome('C:\ChromeDriver\chromedriver')  # Optional argument, if not specified will search path.
-        driver.get('http://www.tinyupload.com/');
+        driver.get('http://buypolish.redcart.pl/panel/products/edit/');
+
+        if isLoginRequired(driver):
+            loginUser(driver)
+
+        addProduct()
+
+
+
+
+ 
+
 
 
 
         # Let the user actually see something!
         # driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
 
-        for pair in pairedFiles:
+        # for pair in pairedFiles:
 
-            uploadElement = WebDriverWait(driver, 10).until(
-                lambda driver: driver.find_element_by_name("uploaded_file")
-                )
+        #     uploadElement = WebDriverWait(driver, 10).until(
+        #         lambda driver: driver.find_element_by_name("uploaded_file")
+        #         )
 
-            descriptionElement = WebDriverWait(driver, 10).until(
-                lambda driver: driver.find_element_by_name("file_description")
-                )
+        #     descriptionElement = WebDriverWait(driver, 10).until(
+        #         lambda driver: driver.find_element_by_name("file_description")
+        #         )
 
-            imagePath = imagesFolder.getFolderPath() + "\\" + pair.getImageFile()
-            descriptionsPath = descriptionsFolder.getFolderPath() + "\\" + pair.getDescriptionFile()
+        #     imagePath = imagesFolder.getFolderPath() + "\\" + pair.getImageFile()
+        #     descriptionsPath = descriptionsFolder.getFolderPath() + "\\" + pair.getDescriptionFile()
 
-            descriptionFile = open(descriptionsPath)
-            productDescription = descriptionFile.read()
+        #     descriptionFile = open(descriptionsPath)
+        #     productDescription = descriptionFile.read()
 
-            uploadElement.send_keys(imagePath)
-            descriptionElement.send_keys(productDescription)
+        #     uploadElement.send_keys(imagePath)
+        #     descriptionElement.send_keys(productDescription)
 
-            descriptionElement.submit()
+        #     descriptionElement.submit()
 
-            driver.get('http://www.tinyupload.com/')
+        #     driver.get('http://www.tinyupload.com/')
 
 
         

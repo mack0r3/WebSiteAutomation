@@ -1,0 +1,1 @@
+1.	Element: 'rc_windowbtclose' is not visible	2016/3/25 15:13:11

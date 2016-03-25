@@ -3,14 +3,13 @@ import win32com.client
 import sys
 import os
 import datetime
+import ftplib
 from selenium import webdriver 
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from folder import Folder
 from pair import Pair
 
-LOG = open("log.txt", "r+")
-ERRORS = open("errors.txt", "r+")
 WAIT = 10
 
 def createWebElementByName(name):
@@ -19,6 +18,7 @@ def createWebElementByName(name):
 			lambda driver: driver.find_element_by_name(name)
 			)
 	except:
+		ERRORS = open("errors.txt", "r+")
 		printStatus(ERRORS, "Element: '" + name + "' is not visible")
 		ERRORS.close()
 		sys.exit()
@@ -29,6 +29,7 @@ def createWebElementByID(ID):
 			lambda driver: driver.find_element_by_id(ID)
 			)
 	except:
+		ERRORS = open("errors.txt", "r+")
 		printStatus(ERRORS, "Element: '" + ID + "' is not visible")
 		ERRORS.close()
 		sys.exit()
@@ -39,6 +40,7 @@ def createWebElementByClassName(className):
 			lambda driver: driver.find_element_by_class_name(className)
 			)
 	except:
+		ERRORS = open("errors.txt", "r+")
 		printStatus(ERRORS, "Element: '" + className + "' is not visible")
 		ERRORS.close()
 		sys.exit()
@@ -49,6 +51,7 @@ def createNestedWebElementByClassName(container, className):
 			lambda driver: container.find_element_by_class_name(className)
 			)
 	except:
+		ERRORS = open("errors.txt", "r+")
 		printStatus(ERRORS, "Element: '" + className + "' is not visible")
 		ERRORS.close()
 		sys.exit()
@@ -142,7 +145,7 @@ def getLastLineID(file):
 	if(isFileEmpty(file)): return 1
 	for line in file:
 		pass
-	stringNumber = ''
+	stringNumber = '0'
 	for i in range(0, len(line)):
 		if(line[i] is not '.'):
 			stringNumber += line[i]
@@ -189,10 +192,13 @@ if __name__ == "__main__":
 			descriptionsPath = descriptionsFolder.getFolderPath() + "\\" + pair.getDescriptionFile()
 			descriptionFile = open(descriptionsPath)
 			productDescription = descriptionFile.read()
+			descriptionFile.close()
 
 			addProduct(imagePath, productDescription)
 
+			LOG = open("log.txt", "r+")
 			printStatus(LOG, successMessage("productName", pair.getImageFile(), pair.getDescriptionFile()))
+			LOG.close()
 			#zanim puscisz skrypt sprawdz na pusto ( co wypisuje w pliku LOG [naawa produktu zdjecie itp itd])
 
 

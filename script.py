@@ -15,8 +15,6 @@ from product import Product
 WAIT = 10
 driver = webdriver.Chrome('C:\ChromeDriver\chromedriver')
 
-
-def initializeDriver():	return webdriver.Chrome('C:\ChromeDriver\chromedriver')
 def createWebElementByName(name):
 	try:
 		element = WebDriverWait(driver, WAIT).until(
@@ -105,7 +103,6 @@ def isFoldersSizeDifferent(firstFolder, secondFolder):	return firstFolder.countF
 def isFileEmpty(file):	return (os.stat(file.name).st_size == 0)
 def getFileName(file):	return os.path.splitext(file)[0]
 def loginUser():
-	print("halo")
 	email = "a.gorczyca@jpconsulting.pl"
 	password = "test123"
 
@@ -117,7 +114,7 @@ def loginUser():
 	emailInput.submit()  
 def isLoginRequired():
 	loginURL = "https://buypolish.redcart.pl/panel/plogin/index/"
-	print(driver.current_url + " # " + loginURL)
+	print(driver.current_url)
 	return (driver.current_url == loginURL)
 def addProduct(product):
     redirectTo('http://buypolish.redcart.pl/panel/products/edit/')
@@ -182,8 +179,9 @@ if __name__ == "__main__":
 
 	if isFoldersSizeDifferent(imagesFolder, descriptionsFolder):
 		print("Amount of files in those folders is different.")
+		driver.quit()
 		sys.exit()
-
+	driver.get("https://buypolish.redcart.pl/panel/plogin/index/")
 	if isLoginRequired():
 		loginUser()
 

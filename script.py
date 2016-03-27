@@ -4,23 +4,26 @@ import sys
 import os
 import datetime
 import ftplib
+import ctypes
 from selenium import webdriver 
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from folder import Folder
 from pair import Pair
+from product import Product
 
 WAIT = 10
+driver = webdriver.Chrome('C:\ChromeDriver\chromedriver')
 
+
+def initializeDriver():	return webdriver.Chrome('C:\ChromeDriver\chromedriver')
 def createWebElementByName(name):
 	try:
 		element = WebDriverWait(driver, WAIT).until(
 			lambda driver: driver.find_element_by_name(name)
 			)
 	except:
-		ERRORS = open("errors.txt", "r+")
-		printStatus(ERRORS, "Element: '" + name + "' is not visible")
-		ERRORS.close()
+		printStatusToFile("errors.txt", "Element: '" + name + "' is not visible")
 		sys.exit()
 	return element
 def createWebElementByID(ID):
@@ -29,9 +32,7 @@ def createWebElementByID(ID):
 			lambda driver: driver.find_element_by_id(ID)
 			)
 	except:
-		ERRORS = open("errors.txt", "r+")
-		printStatus(ERRORS, "Element: '" + ID + "' is not visible")
-		ERRORS.close()
+		printStatusToFile("errors.txt", "Element: '" + ID + "' is not visible")
 		sys.exit()
 	return element
 def createWebElementByClassName(className):
@@ -40,9 +41,7 @@ def createWebElementByClassName(className):
 			lambda driver: driver.find_element_by_class_name(className)
 			)
 	except:
-		ERRORS = open("errors.txt", "r+")
-		printStatus(ERRORS, "Element: '" + className + "' is not visible")
-		ERRORS.close()
+		printStatusToFile("errors.txt", "Element: '" + className + "' is not visible")
 		sys.exit()
 	return element
 def createNestedWebElementByClassName(container, className):
@@ -51,67 +50,79 @@ def createNestedWebElementByClassName(container, className):
 			lambda driver: container.find_element_by_class_name(className)
 			)
 	except:
-		ERRORS = open("errors.txt", "r+")
-		printStatus(ERRORS, "Element: '" + className + "' is not visible")
-		ERRORS.close()
+		printStatusToFile("errors.txt", "Element: '" + className + "' is not visible")
 		sys.exit()
 	return element
-
-
-def foundImage(descriptionFile, imagesFolderPath):
-    for file in os.listdir(imagesFolderPath):
+def findCorrespondingImage(descriptionFile, imagesFolder):
+    for file in imagesFolder.getListOfFiles():
         if(getFileName(descriptionFile) == getFileName(file)):
             return file
     return None
-
-def pairFiles(descriptionsFolder, imagesFolder):
-
-    descriptionsFolderPath = descriptionsFolder.getFolderPath()
-    imagesFolderPath = imagesFolder.getFolderPath()
-
-    pairedFiles = []
-
-    for descriptionFile in os.listdir(descriptionsFolderPath):
-        imageFile = foundImage(descriptionFile, imagesFolderPath)
+def associateDescriptionsWithImages(descriptionsFolder, imagesFolder):
+    pairs = []
+    descriptionsFolderContent = descriptionsFolder.getListOfFiles()
+    for descriptionFile in descriptionsFolderContent:
+        imageFile = findCorrespondingImage(descriptionFile, imagesFolder)
         if (imageFile is not None):
             pair = Pair(descriptionFile, imageFile)
-            pairedFiles.append(pair)
+            pairs.append(pair)
 
-    return pairedFiles
+    return pairs
+def createListOfProducts():
+	products = []
+	associatedFolders = associateDescriptionsWithImages(descriptionsFolder, imagesFolder)
+	for associatedFiles in associatedFolders:
+		productName = retrieveProductName(associatedFiles)
+		productImagePath = retrieveProductImagePath(associatedFiles)
+		productDescription = retrieveProductDescription(associatedFiles)
 
+		product = Product(productName, productImagePath, productDescription)
+		products.append(product)
+
+	return products
+def retrieveProductName(associatedFiles):
+	descriptionFilePath = descriptionsFolder.getFolderPath() + "\\" + associatedFiles.getDescriptionFile()
+	descriptionFile = open(descriptionFilePath)
+	productName = descriptionFile.readline()
+	descriptionFile.close()
+
+	return productName
+def retrieveProductImagePath(associatedFiles):
+	imageFilePath = imagesFolder.getFolderPath() + "\\" + associatedFiles.getImageFile()
+
+	return imageFilePath
+def retrieveProductDescription(associatedFiles):
+	descriptionFilePath = descriptionsFolder.getFolderPath() + "\\" + associatedFiles.getDescriptionFile()
+	descriptionFile = open(descriptionFilePath)
+	productDescription = descriptionFile.read()
+	descriptionFile.close()
+
+	return productDescription
 def displayPairedFiles(pairedFiles):
     for pair in pairedFiles:
         print (pair.getDescriptionFile() + "#" + pair.getImageFile())
+def isFoldersSizeDifferent(firstFolder, secondFolder):	return firstFolder.countFilesInDirectory() != secondFolder.countFilesInDirectory()
+def isFileEmpty(file):	return (os.stat(file.name).st_size == 0)
+def getFileName(file):	return os.path.splitext(file)[0]
+def loginUser():
+	print("halo")
+	email = "a.gorczyca@jpconsulting.pl"
+	password = "test123"
 
-def isFoldersSizeDifferent(firstFolder, secondFolder):
-    return firstFolder.countFilesInDirectory() != secondFolder.countFilesInDirectory()
+	emailInput = createWebElementByName("email")
+	passwordInput = createWebElementByName("pass")
 
-def isFileEmpty(file):
-	return (os.stat(file.name).st_size == 0)
-
-def getFileName(file):
-    return os.path.splitext(file)[0]
-
-def loginUser(driver):
-    email = "a.gorczyca@jpconsulting.pl"
-    password = "test123"
-
-    emailInput = createWebElementByName("email")
-    passwordInput = createWebElementByName("pass")
-
-    emailInput.send_keys(email)
-    passwordInput.send_keys(password)
-    emailInput.submit()  
-
-def isLoginRequired(driver):
-    loginURL = "https://buypolish.redcart.pl/panel/plogin/index/"
-    return (driver.current_url == loginURL)
-
-def addProduct(imagePath, description):
-    redirectToEditPanel()
-    addImage(imagePath)
-    addDescription(description)
-
+	emailInput.send_keys(email)
+	passwordInput.send_keys(password)
+	emailInput.submit()  
+def isLoginRequired():
+	loginURL = "https://buypolish.redcart.pl/panel/plogin/index/"
+	print(driver.current_url + " # " + loginURL)
+	return (driver.current_url == loginURL)
+def addProduct(product):
+    redirectTo('http://buypolish.redcart.pl/panel/products/edit/')
+    addImage(product.getImagePath())
+    addDescription(product.getDescription())
 def addImage(imagePath):
 	addImageMenuItem = createWebElementByID("dpm_menu2")
 	addImageMenuItem.click()
@@ -129,18 +140,13 @@ def addImage(imagePath):
 	time.sleep(3)
 	closeWindow = createWebElementByClassName("rc_windowbtclose")
 	closeWindow.click()
-
 def addDescription(description):
 	addDescriptionMenuItem = createWebElementByID("pm_menu4")
 	addDescriptionMenuItem.click()
 
 	descriptionWrapper = createWebElementByName("products_description_short")
 	descriptionWrapper.send_keys(description)
-
-def redirectToEditPanel():
-    URL = "http://buypolish.redcart.pl/panel/products/edit/"
-    driver.get(URL)
-
+def redirectTo(URL):	driver.get(URL)
 def getLastLineID(file):
 	if(isFileEmpty(file)): return 1
 	for line in file:
@@ -152,88 +158,34 @@ def getLastLineID(file):
 		else:
 			break
 	return (int(stringNumber) + 1)
-
-def printStatus(file, message):
+def printStatusToFile(fileName, message):
+	file = open(fileName, "r+")
 	lineID = getLastLineID(file)
 	now = datetime.datetime.now()
-
 	date = str(now.year) + "/" + str(now.month) + "/" + str(now.day) + " " + str(now.hour) + ":" + str(now.minute) + ":" + str(now.second)
 	file.write(str(lineID) + '.\t' + message + "\t" + date + '\n')
-
-def successMessage(productName, productImage, productDescription):
-	return ("Dodano " + productName + ':\t'
-			"imageFile: " + productImage + "\t"
-			"descriptionFile: " + productDescription)
-
+	file.close()
+def successMessage(product):
+	return ("Dodano " + product.getName() + ':\t'
+			"Image: " + product.getImagePath() + "\t"
+			"Description: " + product.getDescription)
+def startAddingProducts():
+	products = createListOfProducts()
+	for product in products:
+		addProduct(product)
+		message = successMessage(product.getName(), product.getImagePath(), product.getDescription())
+		printStatusToFile("log.txt", message)
 
 if __name__ == "__main__":
-
-	imagesFolder = Folder()
-	imagesFolder.setFolderPath("images")
-	imagesFolderSize = imagesFolder.countFilesInDirectory()
-
-	descriptionsFolder = Folder();
-	descriptionsFolder.setFolderPath("descriptions")
-	descriptionsFolderSize = descriptionsFolder.countFilesInDirectory()
+	imagesFolder = Folder("images")
+	descriptionsFolder = Folder("descriptions")
 
 	if isFoldersSizeDifferent(imagesFolder, descriptionsFolder):
-		print ("Amount of files in those folders is different.")
-	else:
-		pairedFiles = pairFiles(descriptionsFolder, imagesFolder)
+		print("Amount of files in those folders is different.")
+		sys.exit()
 
-		driver = webdriver.Chrome('C:\ChromeDriver\chromedriver')  # Optional argument, if not specified will search path.
-		driver.get('http://buypolish.redcart.pl/panel/products/edit/');
+	if isLoginRequired():
+		loginUser()
 
-		if isLoginRequired(driver):
-			loginUser(driver)
-
-		for pair in pairedFiles:
-			imagePath = imagesFolder.getFolderPath() + "\\" + pair.getImageFile()
-			descriptionsPath = descriptionsFolder.getFolderPath() + "\\" + pair.getDescriptionFile()
-			descriptionFile = open(descriptionsPath)
-			productDescription = descriptionFile.read()
-			descriptionFile.close()
-
-			addProduct(imagePath, productDescription)
-
-			LOG = open("log.txt", "r+")
-			printStatus(LOG, successMessage("productName", pair.getImageFile(), pair.getDescriptionFile()))
-			LOG.close()
-			#zanim puscisz skrypt sprawdz na pusto ( co wypisuje w pliku LOG [naawa produktu zdjecie itp itd])
-
-
-
-
- 
-
-
-
-
-        # Let the user actually see something!
-        # driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-
-        # for pair in pairedFiles:
-
-        #     uploadElement = WebDriverWait(driver, 10).until(
-        #         lambda driver: driver.find_element_by_name("uploaded_file")
-        #         )
-
-        #     descriptionElement = WebDriverWait(driver, 10).until(
-        #         lambda driver: driver.find_element_by_name("file_description")
-        #         )
-
-        #     imagePath = imagesFolder.getFolderPath() + "\\" + pair.getImageFile()
-        #     descriptionsPath = descriptionsFolder.getFolderPath() + "\\" + pair.getDescriptionFile()
-
-        #     descriptionFile = open(descriptionsPath)
-        #     productDescription = descriptionFile.read()
-
-        #     uploadElement.send_keys(imagePath)
-        #     descriptionElement.send_keys(productDescription)
-
-        #     descriptionElement.submit()
-
-        #     driver.get('http://www.tinyupload.com/')
-
-
-        
+	startAddingProducts()
+	driver.quit()

@@ -1,3 +1,10 @@
 1.	Dodano: xasd	Image: C:\Users\Korzonkie\Desktop\buy-polish\images\ANTWERPEN TV cabinet.jpg	Description: xasd	2016/3/27 22:20:58
 2.	Dodano: sdasdas	Image: C:\Users\Korzonkie\Desktop\buy-polish\images\LARGO CLASSIC cabinet.jpg	Description: sdasdas	2016/3/27 22:21:9
 3.	Dodano: asdasda	Image: C:\Users\Korzonkie\Desktop\buy-polish\images\SENEGAL TV cabinet.jpg	Description: asdasda	2016/3/27 22:21:19
+4.	Dodano: ANTWERPEN TV cabinet
+	Image: C:\Users\Bogus\Desktop\buy-polish\images\ANTWERPEN TV cabinet.jpg	Description: ANTWERPEN TV cabinet
+Producer: Black Red White
+Model: S214-RTV4S/6/14-MSJ/SOL
+Product weight: 54.1 kg
+Warranty: 2 years
+Order fulfillment: 30 days	2016/3/28 9:19:29

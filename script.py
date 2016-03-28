@@ -5,52 +5,11 @@ import os
 import datetime
 import ftplib
 import ctypes
-from selenium import webdriver 
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+from webdriver import WebDriver
 from folder import Folder
 from pair import Pair
 from product import Product
 
-WAIT = 10
-driver = webdriver.Chrome('C:\ChromeDriver\chromedriver')
-
-def createWebElementByName(name):
-	try:
-		element = WebDriverWait(driver, WAIT).until(
-			lambda driver: driver.find_element_by_name(name)
-			)
-	except:
-		printStatusToFile("errors.txt", "Element: '" + name + "' is not visible")
-		sys.exit()
-	return element
-def createWebElementByID(ID):
-	try:
-		element = WebDriverWait(driver, WAIT).until(
-			lambda driver: driver.find_element_by_id(ID)
-			)
-	except:
-		printStatusToFile("errors.txt", "Element: '" + ID + "' is not visible")
-		sys.exit()
-	return element
-def createWebElementByClassName(className):
-	try:
-		element = WebDriverWait(driver, WAIT).until(
-			lambda driver: driver.find_element_by_class_name(className)
-			)
-	except:
-		printStatusToFile("errors.txt", "Element: '" + className + "' is not visible")
-		sys.exit()
-	return element
-def createNestedWebElementByClassName(container, className):
-	try:
-		element = WebDriverWait(driver, WAIT).until(
-			lambda driver: container.find_element_by_class_name(className)
-			)
-	except:
-		printStatusToFile("errors.txt", "Element: '" + className + "' is not visible")
-		sys.exit()
-	return element
 def findCorrespondingImage(descriptionFile, imagesFolder):
     for file in imagesFolder.getListOfFiles():
         if(getFileName(descriptionFile) == getFileName(file)):
@@ -106,44 +65,43 @@ def loginUser():
 	email = "a.gorczyca@jpconsulting.pl"
 	password = "test123"
 
-	emailInput = createWebElementByName("email")
-	passwordInput = createWebElementByName("pass")
+	emailInput = driver.createWebElementByName("email")
+	passwordInput = driver.createWebElementByName("pass")
 
 	emailInput.send_keys(email)
 	passwordInput.send_keys(password)
 	emailInput.submit()  
 def isLoginRequired():
 	loginURL = "https://buypolish.redcart.pl/panel/plogin/index/"
-	print(driver.current_url)
-	return (driver.current_url == loginURL)
+	print(driver.currentURL())
+	return (driver.currentURL() == loginURL)
 def addProduct(product):
-    redirectTo('http://buypolish.redcart.pl/panel/products/edit/')
+    driver.redirectTo('http://buypolish.redcart.pl/panel/products/edit/')
     addImage(product.getImagePath())
     addDescription(product.getDescription())
 def addImage(imagePath):
-	addImageMenuItem = createWebElementByID("dpm_menu2")
+	addImageMenuItem = driver.createWebElementByID("dpm_menu2")
 	addImageMenuItem.click()
-	buttonFirstWrapper = createWebElementByID("mp_menu2")
-	addImageFirstButton = createNestedWebElementByClassName(buttonFirstWrapper, "rc_button")
+	buttonFirstWrapper = driver.createWebElementByID("mp_menu2")
+	addImageFirstButton = driver.createNestedWebElementByClassName(buttonFirstWrapper, "rc_button")
 	addImageFirstButton.click()
-	buttonSecondWrapper = createWebElementByID("rc_window1")
+	buttonSecondWrapper = driver.createWebElementByID("rc_window1")
 	time.sleep(2)
-	addImageSecondButton = createNestedWebElementByClassName(buttonSecondWrapper, "swiff-uploader-box")
+	addImageSecondButton = driver.createNestedWebElementByClassName(buttonSecondWrapper, "swiff-uploader-box")
 	addImageSecondButton.click()
 	time.sleep(2)
 	win = win32com.client.Dispatch("WScript.Shell")
 	win.SendKeys(imagePath)
 	win.SendKeys("{ENTER}")
 	time.sleep(3)
-	closeWindow = createWebElementByClassName("rc_windowbtclose")
+	closeWindow = driver.createWebElementByClassName("rc_windowbtclose")
 	closeWindow.click()
 def addDescription(description):
-	addDescriptionMenuItem = createWebElementByID("pm_menu4")
+	addDescriptionMenuItem = driver.createWebElementByID("pm_menu4")
 	addDescriptionMenuItem.click()
 
-	descriptionWrapper = createWebElementByName("products_description_short")
+	descriptionWrapper = driver.createWebElementByName("products_description_short")
 	descriptionWrapper.send_keys(description)
-def redirectTo(URL):	driver.get(URL)
 def getLastLineID(file):
 	if(isFileEmpty(file)): return 1
 	for line in file:
@@ -172,8 +130,17 @@ def startAddingProducts():
 		addProduct(product)
 		message = successMessage(product)
 		printStatusToFile("log.txt", message)
+def initializeDriver():
+	driver = WebDriver()
+	driver.setWebDriverPath('C:\ChromeDriver\chromedriver')
+	driver.setWaitUntilClock(10)
+	return driver
+
 
 if __name__ == "__main__":
+
+	driver = initializeDriver()
+
 	imagesFolder = Folder("images")
 	descriptionsFolder = Folder("descriptions")
 
@@ -181,7 +148,9 @@ if __name__ == "__main__":
 		print("Amount of files in those folders is different.")
 		driver.quit()
 		sys.exit()
-	driver.get("https://buypolish.redcart.pl/panel/plogin/index/")
+		
+	driver.redirectTo("https://buypolish.redcart.pl/panel/plogin/index/")#change path
+
 	if isLoginRequired():
 		loginUser()
 

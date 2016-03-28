@@ -163,14 +163,14 @@ def printStatusToFile(fileName, message):
 	file.write(str(lineID) + '.\t' + message + "\t" + date + '\n')
 	file.close()
 def successMessage(product):
-	return ("Dodano " + product.getName() + ':\t'
+	return ("Dodano: " + product.getName() + '\t'
 			"Image: " + product.getImagePath() + "\t"
-			"Description: " + product.getDescription)
+			"Description: " + product.getDescription())
 def startAddingProducts():
 	products = createListOfProducts()
 	for product in products:
 		addProduct(product)
-		message = successMessage(product.getName(), product.getImagePath(), product.getDescription())
+		message = successMessage(product)
 		printStatusToFile("log.txt", message)
 
 if __name__ == "__main__":

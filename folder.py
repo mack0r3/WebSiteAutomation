@@ -1,7 +1,7 @@
 import os
 
 class Folder:
-	rootFolder = "C:\\Users\\Bogus\\Desktop\\buy-polish\\"
+	rootFolder = "C:\\Users\\Korzonkie\\Desktop\\buy-polish\\"
 	folderPath = None
 
 	def __init__(self, folderName):

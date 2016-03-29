@@ -18,6 +18,9 @@ class WebDriver:
 	def currentURL(self):
 		return self.driver.current_url
 
+	def quit(self):
+		return self.driver.quit()	
+
 	def createWebElementByName(self, name):
 		try:
 			element = WebDriverWait(self.driver, self.waitUntilClock).until(

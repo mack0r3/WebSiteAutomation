@@ -1,0 +1,513 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"add",
+				"addImageElement"
+			],
+			[
+				"login",
+				"loginUser"
+			],
+			[
+				"passw",
+				"passwordInput"
+			],
+			[
+				"email",
+				"emailInput"
+			],
+			[
+				"cu",
+				"current_game"
+			],
+			[
+				"tex",
+				"text-decoration"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"m",
+				"margin-left"
+			],
+			[
+				"margin",
+				"margin-top"
+			],
+			[
+				"text-",
+				"text-indent"
+			],
+			[
+				"font-",
+				"font-family"
+			],
+			[
+				"check",
+				"checkForTagTaken"
+			],
+			[
+				"nazwa",
+				"nazwa_druzyny"
+			],
+			[
+				"json",
+				"json_encode"
+			],
+			[
+				"for",
+				"foreach	foreach …"
+			],
+			[
+				"res",
+				"responseArray"
+			],
+			[
+				"number",
+				"numberOfPlayers"
+			],
+			[
+				"margin-",
+				"margin-bottom"
+			],
+			[
+				"ma",
+				"margin-top"
+			],
+			[
+				"rg",
+				"rgba()"
+			],
+			[
+				"a",
+				"rgba()"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"min-",
+				"min-width"
+			],
+			[
+				"mar",
+				"margin-top"
+			],
+			[
+				"re",
+				"repeat"
+			],
+			[
+				"rep",
+				"repeat-x"
+			],
+			[
+				"padd",
+				"padding"
+			],
+			[
+				"te",
+				"text-align"
+			],
+			[
+				"size",
+				"font-size"
+			],
+			[
+				"b",
+				"border-color"
+			],
+			[
+				"max",
+				"max-width"
+			],
+			[
+				"ba",
+				"background-position"
+			],
+			[
+				"backgroun",
+				"background-color"
+			],
+			[
+				"mess",
+				"messageBox"
+			],
+			[
+				"marg",
+				"margin-bottom"
+			],
+			[
+				"padding-",
+				"padding-left"
+			],
+			[
+				"inlin",
+				"inline-block"
+			],
+			[
+				"he",
+				"height"
+			],
+			[
+				"pass",
+				"passwords"
+			],
+			[
+				"in",
+				"input"
+			],
+			[
+				"padding",
+				"padding-bottom"
+			],
+			[
+				"DIV",
+				"div"
+			],
+			[
+				"LABEL",
+				"label"
+			],
+			[
+				"paddin",
+				"padding-right"
+			],
+			[
+				"list",
+				"list-style-type"
+			],
+			[
+				"text",
+				"text-align"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 104.0,
+		"last_filter": "install",
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"package control",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Preferences: Browse Packages"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 153.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/Korzonkie/Documents/Python Projects/python.py",
+		"/C/Users/Korzonkie/Documents/buypolish/script.py",
+		"/C/Users/Korzonkie/Desktop/PythonProject/script.py",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp59094/Modena/MODENA_ARANZ_OK_2ok1.jpg",
+		"/C/Users/Korzonkie/Downloads/SendKeys.py",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp37993/KARTY PRODUKTOWE/JPG/YORK2.jpg",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp35537/KARTY PRODUKTOWE/YORK.pdf",
+		"/C/Users/Korzonkie/Desktop/PythonProject/plik.txt",
+		"/C/Users/Korzonkie/Desktop/buy-polish/descriptions/item1.txt",
+		"/C/Users/Korzonkie/Desktop/python-example-project-master/python-example-project-master/project/main.py",
+		"/C/Users/Korzonkie/Desktop/python-example-project-master/python-example-project-master/project/lib/project.py",
+		"/C/Users/Korzonkie/AppData/Roaming/Sublime Text 3/Installed Packages/Package Control.sublime-package",
+		"/C/Users/Korzonkie/AppData/Roaming/Sublime Text 3/Installed Packages/Python 3.sublime-package",
+		"/C/xampp/htdocs/knightparty/main/ajax/db_config.php",
+		"/C/Users/Korzonkie/Desktop/Maciej Korzeniewski - FunMath/Opis.txt",
+		"/C/xampp/htdocs/knightparty/main/js/main.js",
+		"/C/xampp/htdocs/knightparty/main/css/style.css",
+		"/C/xampp/htdocs/knightparty/main/ajax/get_players.php",
+		"/C/xampp/htdocs/knightparty/lol/index.php",
+		"/C/xampp/htdocs/knightparty/lol/js/main.js",
+		"/C/xampp/htdocs/knightparty/lol/css/style.css",
+		"/C/xampp/htdocs/knightparty/lol/ajax/register.php",
+		"/C/xampp/htdocs/knightparty/lol/ajax/db_config.php",
+		"/C/xampp/htdocs/knightparty/hs/index.php",
+		"/C/xampp/htdocs/knightparty/hs/js/main.js",
+		"/C/xampp/htdocs/knightparty/hs/css/style.css",
+		"/C/xampp/htdocs/knightparty/hs/ajax/register.php",
+		"/C/xampp/htdocs/knightparty/hs/ajax/db_config.php",
+		"/C/xampp/htdocs/knightparty/dev/index.php",
+		"/C/xampp/htdocs/knightparty/dev/css/style.css",
+		"/C/xampp/htdocs/knightparty/cs/index.php",
+		"/C/xampp/htdocs/knightparty/cs/js/main.js",
+		"/C/xampp/htdocs/knightparty/cs/css/style.css",
+		"/C/xampp/htdocs/knightparty/cs/ajax/register.php",
+		"/C/xampp/htdocs/knightparty/cs/ajax/db_config.php",
+		"/C/xampp/htdocs/knightparty/main/index.php",
+		"/C/xampp/htdocs/knightparty/xxx/index.php",
+		"/C/xampp/htdocs/knightparty/.floo",
+		"/C/Users/Korzonkie/floobits/welcome.md",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp55616/usr/share/nginx/html/lol/ajax/register.php",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp49131/usr/share/nginx/html/lol/index.php",
+		"/F/218.ps1",
+		"/F/runscript.bat",
+		"/F/218.txt",
+		"/F/autorun.inf",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp02072/usr/share/nginx/html/cs/js/main.js",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp02912/usr/share/nginx/html/cs/ajax/register.php",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp01509/usr/share/nginx/html/cs/index.php",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp01096/usr/share/nginx/html/main/js/main.js",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp01229/usr/share/nginx/html/main/ajax/get_players.php",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp01725/usr/share/nginx/html/main/index.php",
+		"/C/xampp/htdocs/kp/cs/index.php",
+		"/C/xampp/htdocs/kp/main/ajax/get_players.php",
+		"/C/xampp/htdocs/kp/main/index.php",
+		"/C/xampp/htdocs/kp/main/js/main.js",
+		"/C/xampp/htdocs/kp/main/css/style.css",
+		"/C/xampp/htdocs/kp/main/ajax/db_config.php",
+		"/C/xampp/htdocs/kp/cs/js/main.js",
+		"/C/xampp/htdocs/kp/cs/ajax/register.php",
+		"/C/xampp/htdocs/kp/cs/ajax/db_config.php",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp11048/usr/share/nginx/html/ezstudies/get_user_tests.php",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp13870/usr/share/nginx/html/ezstudies/insert_test.php",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp51287/etc/nginx/sites-enabled/knightparty.pl",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp52975/etc/nginx/sites-available/knightparty.pl",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp06852/usr/share/nginx/html/ezstudies/.htaccess",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp24048/etc/nginx/sites-available/default",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp40455/etc/php5/fpm/php.ini",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp24567/etc/nginx/sites-available/default.save",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp53722/usr/share/nginx/html/cs/css/style.css",
+		"/C/Users/Korzonkie/Desktop/EzStudiesCRUD/db_config.php",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp40976/usr/share/nginx/html/cs/index.php",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp45475/usr/share/nginx/html/main/index.php",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp15677/usr/share/nginx/html/cs/css/style.css",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp59840/usr/share/nginx/html/lol/index.php",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp02975/usr/share/nginx/html/cs/index.php",
+		"/C/Users/Korzonkie/Downloads/CSGO_Regulamin.html",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp45118/usr/share/nginx/html/hs/ajax/register.php",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp30917/usr/share/nginx/html/lol/ajax/register.php",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp54414/usr/share/nginx/html/cs/ajax/register.php",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp50719/usr/share/nginx/html/lol/ajax/db_config.php",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp06867/usr/share/nginx/html/main/images/logoText.png",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp51043/usr/share/nginx/html/main/images/thumbnail.jpg",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp51785/usr/share/nginx/html/main/index.php",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp01720/usr/share/nginx/html/main/ajax/get_players.php",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp45260/usr/share/nginx/html/lol/ajax/register.php",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp45627/usr/share/nginx/html/hs/ajax/register.php",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp00120/usr/share/nginx/html/cs/ajax/register.php",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp52402/usr/share/nginx/html/main/css/style.css",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp11332/usr/share/nginx/html/main/js/main.js",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp56093/usr/share/nginx/html/main/ajax/get_players.php",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp50495/usr/share/nginx/html/main/index.php",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp39093/usr/share/nginx/html/hs/ajax/register.php",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp52184/usr/share/nginx/html/main/css/style.css",
+		"/C/Users/Korzonkie/Desktop/EzStudiesCRUD/get_user_tests.php",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp41487/usr/share/nginx/html/cs/ajax/register.php",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp46050/usr/share/nginx/html/hs/index.php",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp45561/usr/share/nginx/html/cs/index.php",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp46769/usr/share/nginx/html/lol/index.php",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp04860/usr/share/nginx/html/knightparty/main/index.php",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp24465/usr/share/nginx/html/knightparty/hs/css/style.css",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp50682/etc/nginx/sites-available/knightparty.pl",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp35660/usr/share/nginx/html/knightparty/main/js/main.js",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp02436/usr/share/nginx/html/knightparty/cs/css/style.css",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp05294/usr/share/nginx/html/knightparty/main/css/style.css",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp35444/usr/share/nginx/html/knightparty/cs/index.php",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp09447/etc/nginx/fastcgi_params",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp38846/usr/share/nginx/html/knightparty/main/images/gameTiles/hs_tile.jpg",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp26065/usr/share/nginx/html/knightparty/lol/css/style.css",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp24906/usr/share/nginx/html/knightparty/hs/index.php",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp26753/usr/share/nginx/html/knightparty/lol/index.php",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp32345/usr/share/nginx/html/knightparty/main/images/diamonds.png",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp03671/usr/share/nginx/html/knightparty/main/index.html",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp21723/var/www/html/knightparty/lolform/ajax/register.php",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp54659/var/www/html/knightparty/hsform/index.php",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp35023/var/www/html/knightparty/csform/ajax/register.php",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp55170/var/www/html/knightparty/lolform/index.php",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp47066/var/www/html/knightparty/csform/index.php",
+		"/C/Users/Korzonkie/Desktop/hsform/index.php",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp56946/var/www/html/knightparty/hsform/ajax/register.php",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp56950/var/www/html/knightparty/csform/css/style.css",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp46797/var/www/html/knightparty/hsform/css/style.css",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp48122/var/www/html/knightparty/csform/js/main.js",
+		"/C/Users/Korzonkie/Desktop/lolform/ajax/register.php",
+		"/C/Users/Korzonkie/Desktop/hsform/ajax/register.php",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp48960/var/www/html/knightparty/csform/images/logoText.png",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp35248/var/www/html/knightparty/csform/ajax/db_config.php",
+		"/C/Users/Korzonkie/AppData/Local/Temp/scp37398/var/www/html/EzStudiesCRUD/get_results.php",
+		"/C/xampp/htdocs/knightparty/csform/index.php"
+	],
+	"find":
+	{
+		"height": 27.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"setFolderPath",
+			"php",
+			"<php ",
+			"div",
+			"<p>",
+			"p",
+			"paragraph_text",
+			"tag_druzyny",
+			"nazwa_druzyny",
+			"lol_players",
+			"cs_players",
+			"img",
+			"o facebooku",
+			"u_0_o",
+			"uiList",
+			"#u",
+			"#u_0_1"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"<li>",
+			"li",
+			"listTherm",
+			"battle_tag",
+			"nazwa_gracza",
+			"hs_players",
+			"lol_players"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 35.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "Packages/Python/Python.sublime-build",
+	"project": "__init__.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

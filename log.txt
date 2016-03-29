@@ -1,10 +1,9 @@
-1.	Dodano: xasd	Image: C:\Users\Korzonkie\Desktop\buy-polish\images\ANTWERPEN TV cabinet.jpg	Description: xasd	2016/3/27 22:20:58
-2.	Dodano: sdasdas	Image: C:\Users\Korzonkie\Desktop\buy-polish\images\LARGO CLASSIC cabinet.jpg	Description: sdasdas	2016/3/27 22:21:9
-3.	Dodano: asdasda	Image: C:\Users\Korzonkie\Desktop\buy-polish\images\SENEGAL TV cabinet.jpg	Description: asdasda	2016/3/27 22:21:19
-4.	Dodano: ANTWERPEN TV cabinet
-	Image: C:\Users\Bogus\Desktop\buy-polish\images\ANTWERPEN TV cabinet.jpg	Description: ANTWERPEN TV cabinet
-Producer: Black Red White
-Model: S214-RTV4S/6/14-MSJ/SOL
-Product weight: 54.1 kg
-Warranty: 2 years
-Order fulfillment: 30 days	2016/3/28 9:19:29
+1.	Dodano: O tutaj jest opis.	Image: C:\Users\Korzonkie\Desktop\buy-polish\images\item1.png	Description: O tutaj jest opis.	2016/3/30 0:15:55
+2.	Dodano: Tutaj jest kolejny opis	Image: C:\Users\Korzonkie\Desktop\buy-polish\images\item2.png	Description: Tutaj jest kolejny opis	2016/3/30 0:16:3
+3.	Dodano: Blah Blah lbha...	Image: C:\Users\Korzonkie\Desktop\buy-polish\images\item3.jpg	Description: Blah Blah lbha...	2016/3/30 0:16:16
+4.	Dodano: O tutaj jest opis.	Image: C:\Users\Korzonkie\Desktop\buy-polish\images\item1.png	Description: O tutaj jest opis.	2016/3/30 0:17:57
+5.	Dodano: Tutaj jest kolejny opis	Image: C:\Users\Korzonkie\Desktop\buy-polish\images\item2.png	Description: Tutaj jest kolejny opis	2016/3/30 0:18:5
+6.	Dodano: Blah Blah lbha...	Image: C:\Users\Korzonkie\Desktop\buy-polish\images\item3.jpg	Description: Blah Blah lbha...	2016/3/30 0:18:15
+7.	Dodano: O tutaj jest opis.	Image: C:\Users\Korzonkie\Desktop\buy-polish\images\item1.png	Description: O tutaj jest opis.	2016/3/30 0:19:1
+8.	Dodano: Tutaj jest kolejny opis	Image: C:\Users\Korzonkie\Desktop\buy-polish\images\item2.png	Description: Tutaj jest kolejny opis	2016/3/30 0:19:10
+9.	Dodano: Blah Blah lbha...	Image: C:\Users\Korzonkie\Desktop\buy-polish\images\item3.jpg	Description: Blah Blah lbha...	2016/3/30 0:19:20
